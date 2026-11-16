@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyến tàu Tri ân: Dấu ấn Toán - Tin | DevGang 🤝 PiMC (20/11)</title>
+    
+    <!-- Google Fonts: Dancing Script (cho chữ nghệ thuật giống Poster), Be Vietnam Pro, JetBrains Mono, Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Dancing+Script:wght@600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <!-- MathJax để hiển thị công thức Toán học của PiMC -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Cấu hình Tailwind theo Tone màu Poster & Yêu cầu -->
+    <script>
+        tailwind.config = {
+            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                        script: ['"Dancing Script"', 'cursive'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        indigoDeep: {
+                            950: '#F4F7FF',
+                            900: '#FFFFFF',
+                            800: '#EEF2FF',
+                            700: '#E0E7FF',
+                        },
+                        neonPink: {
+                            300: '#F5D0FE',
+                            400: '#E879F9',
+                            500: '#D946EF',
+                        },
+                        amberWarm: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS mô phỏng hiệu ứng Poster 20/11 -->
+    <style>
+        body {
+            background-color: #F4F7FF;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+
+        /* Hiệu ứng chữ Neon Lavender/Pink giống Poster */
+        .poster-neon-text {
+            background: linear-gradient(135deg, #4F46E5 0%, #9333EA 55%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 6px 24px rgba(147, 51, 234, 0.16);
+        }
+
+        /* Hiệu ứng khung 20/11 Cyberpunk/Tech giống Poster */
+        .badge-2011-frame {
+            background: linear-gradient(135deg, #EEF2FF 0%, #FAE8FF 100%);
+            border: 2px solid #A855F7;
+            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.15);
+            clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+        }
+
+        /* Lưới tọa độ Toán - Tin mờ phía sau */
+        .tech-math-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(129, 140, 248, 0.10) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(129, 140, 248, 0.10) 1px, transparent 1px);
+        }
+
+        /* Hiệu ứng lơ lửng cho các icon </>, π, Graph */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        .animate-float-slow {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatSlow 6s ease-in-out 1.5s infinite;
+        }
+
+        /* Thanh cuộn tinh tế */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F7FF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen flex flex-col">
+
+    <!-- ==================== CO-BRANDING TOP BAR (GIỐNG ĐẦU POSTER) ==================== -->
+    <div class="bg-indigoDeep-950/90 border-b border-indigo-200 text-xs py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- Bên trái: {DG} | DEVGANG 🤝 π | PIMC -->
+            <div class="flex items-center gap-2 sm:gap-3 font-mono font-bold tracking-wider">
+                <span class="inline-flex items-center gap-1.5 text-slate-900">
+                    <span class="px-1.5 py-0.5 rounded bg-indigo-100 border border-indigo-400/40 text-amber-600">{DG}</span>
+                    <span>DEVGANG</span>
+                </span>
+                <span class="text-amber-600 text-sm" title="Hợp tác 50:50">🤝</span>
+                <span class="inline-flex items-center gap-1.5 text-slate-900">
+                    <span class="w-5 h-5 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 text-slate-950 flex items-center justify-center font-serif font-extrabold text-xs">π</span>
+                    <span>PIMC</span>
+                </span>
+            </div>
+
+            <!-- Bên phải: CÙNG DEVGANG VÀ PIMC GỬI GẮM LÒNG BIẾT ƠN SÂU SẮC -->
+            <div class="hidden md:block font-sans text-[11px] uppercase tracking-widest text-indigo-800/80 font-semibold">
+                CÙNG DEVGANG VÀ PIMC GỬI GẮM LÒNG BIẾT ƠN SÂU SẮC
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- ==================== THANH ĐIỀU HƯỚNG CHÍNH (MAIN NAVBAR) ==================== -->
+    <header class="sticky top-0 z-40 bg-indigoDeep-900/85 backdrop-blur-xl border-b border-indigo-200 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo Chuyến tàu Tri ân -->
+                <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-orange-500 flex items-center justify-center text-slate-950 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <i data-lucide="train-front" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-sm sm:text-base text-slate-900 tracking-tight block leading-none">
+                            Chuyến tàu Tri ân <span class="text-amber-600">20/11</span>
+                        </span>
+                        <span class="font-mono text-[11px] text-purple-700/80 block mt-1">
+                            Dấu ấn Toán - Tin • THPT Chuyên Tiền Giang
+                        </span>
+                    </div>
+                </button>
+
+                <!-- Các nút chuyển trang (Giả lập Multi-page: index.html, wishes.html, puzzle.html, admin) -->
+                <nav class="hidden md:flex items-center gap-2">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 bg-amber-500 text-slate-950 shadow-sm">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        <span>Trang chủ</span>
+                        <span class="font-mono text-[10px] opacity-75">(index)</span>
+                    </button>
+                    <button onclick="navigateTo('wishes')" id="nav-wishes" class="nav-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-slate-600 hover:text-indigo-900 hover:bg-indigoDeep-800">
+                        <i data-lucide="users" class="w-4 h-4 text-amber-600"></i>
+                        <span>Lời chúc & Giáo viên</span>
+                        <span class="font-mono text-[10px] opacity-60">(wishes)</span>
+                    </button>
+                    <button onclick="navigateTo('puzzle')" id="nav-puzzle" class="nav-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-slate-600 hover:text-indigo-900 hover:bg-indigoDeep-800">
+                        <i data-lucide="puzzle" class="w-4 h-4 text-purple-400"></i>
+                        <span>Câu đố Toán - Tin</span>
+                        <span class="font-mono text-[10px] opacity-60">(puzzle)</span>
+                    </button>
+
+                </nav>
+
+                <!-- Nút Gửi lời chúc nhanh & Mobile Menu Button -->
+                <div class="flex items-center gap-2">
+                    <button onclick="openQuickWishModal()" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md shadow-amber-500/20 flex items-center gap-1.5 transition-transform active:scale-95">
+                        <i data-lucide="pen-tool" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline">Gửi lời chúc</span>
+                    </button>
+                    <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-xl bg-indigoDeep-800 text-slate-700 border border-indigo-200" aria-label="Menu">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu trên điện thoại -->
+        <div id="mobile-nav-drawer" class="hidden md:hidden bg-indigoDeep-900 border-t border-indigo-200 px-4 pt-2 pb-4 space-y-1.5">
+            <button onclick="navigateTo('home'); toggleMobileNav();" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-900 hover:bg-indigoDeep-800 flex items-center justify-between">
+                <span class="flex items-center gap-2"><i data-lucide="home" class="w-4 h-4 text-amber-600"></i> 1. Trang chủ (index.html)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <button onclick="navigateTo('wishes'); toggleMobileNav();" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-900 hover:bg-indigoDeep-800 flex items-center justify-between">
+                <span class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-amber-600"></i> 2. Trang Lời chúc & Giáo viên (wishes.html)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+            </button>
+            <button onclick="navigateTo('puzzle'); toggleMobileNav();" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-900 hover:bg-indigoDeep-800 flex items-center justify-between">
+                <span class="flex items-center gap-2"><i data-lucide="puzzle" class="w-4 h-4 text-purple-400"></i> 3. Trang Câu đố Toán - Tin (puzzle.html)</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- =================================================================================== -->
+    <!--                              VIEW 1: TRANG CHỦ (INDEX.HTML)                         -->
+    <!-- =================================================================================== -->
+    <main id="view-home" class="flex-1 tech-math-bg">
+        
+        <!-- HERO SECTION: TÁI HIỆN TRỰC TIẾP BỐ CỤC & CẢM HỨNG TỪ POSTER ĐÍNH KÈM -->
+        <section class="relative overflow-hidden pt-10 pb-20 md:py-20 border-b border-indigo-200">
+            <!-- Ánh sáng glow tím & vàng phía sau -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-purple-600/20 rounded-full blur-[110px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-[350px] h-[250px] bg-amber-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+            <!-- Cột mã nhị phân & đồ thị hàm số trang trí bên phải giống Poster -->
+            <div class="hidden lg:block absolute top-12 right-8 opacity-30 pointer-events-none select-none font-mono text-[10px] leading-tight text-indigo-300 text-right">
+                01000100 01000111<br>01010000 01001001<br>00110010 00110000<br>00110001 00110001<br>
+                <svg class="w-36 h-24 mt-3 stroke-purple-300/70 fill-none" viewBox="0 0 120 80">
+                    <!-- Hệ trục tọa độ Oxy & Đồ thị bậc 3 giống góc phải poster -->
+                    <line x1="10" y1="70" x2="115" y2="70" stroke-width="1.2"/>
+                    <line x1="20" y1="5" x2="20" y2="78" stroke-width="1.2"/>
+                    <path d="M 15 60 Q 45 5, 65 40 T 110 15" stroke-width="2" stroke="#F0ABFC"/>
+                    <text x="23" y="14" fill="#F0ABFC" font-size="9">y</text>
+                    <text x="108" y="65" fill="#F0ABFC" font-size="9">x</text>
+                </svg>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Cột trái (7 cột): Typography "Tri ân ngày Nhà Giáo Việt Nam 20/11" & Thông điệp -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigoDeep-800/90 border border-purple-300 text-indigo-800 text-xs font-mono mb-6 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                            <span>CHUYẾN TÀU TRI ÂN: DẤU ẤN TOÁN - TIN • THPT CHUYÊN TIỀN GIANG</span>
+                        </div>
+
+                        <!-- Cụm Tiêu đề Poster: Chữ nghệ thuật phát sáng + Khung 20/11 góc cạnh -->
+                        <div class="relative inline-block mb-6">
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
+                                <span class="font-script text-5xl sm:text-6xl md:text-7xl poster-neon-text tracking-wide">
+                                    Tri ân ngày
+                                </span>
+                                <!-- Khung 20/11 giống hệt Poster -->
+                                <div class="badge-2011-frame px-6 py-2 sm:px-8 sm:py-3 transform -rotate-2">
+                                    <span class="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-wider poster-neon-text">
+                                        20/11
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="mt-2 sm:mt-4">
+                                <span class="font-script text-6xl sm:text-7xl md:text-8xl poster-neon-text block leading-none">
+                                    Nhà Giáo
+                                </span>
+                                <span class="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl text-indigo-950 tracking-wide block mt-2">
+                                    Việt Nam
+                                    <span class="block h-1 w-44 sm:w-64 bg-gradient-to-r from-purple-300 via-pink-400 to-transparent rounded-full mx-auto lg:mx-0 mt-2"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                            Sản phẩm phối hợp thực hiện giữa <strong class="text-amber-600 font-semibold">CLB Lập trình DevGang</strong> và <strong class="text-purple-700 font-semibold">CLB Toán học PiMC</strong>, gửi gắm trọn vẹn lòng biết ơn sâu sắc đến quý Thầy Cô <strong class="text-slate-900">Tổ Toán - Tin, Trường THPT Chuyên Tiền Giang</strong>.
+                        </p>
+
+                        <!-- 3 Nút Điều Hướng Rõ Ràng theo yêu cầu Kiến trúc -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+                            <button onclick="navigateTo('wishes')" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+                                <i data-lucide="search-check" class="w-5 h-5"></i>
+                                <span>Tìm Giáo Viên & Xem Lời Chúc</span>
+                            </button>
+
+                            <button onclick="navigateTo('puzzle')" class="px-6 py-3.5 rounded-2xl bg-indigoDeep-800 hover:bg-indigoDeep-700 text-indigo-800 border border-purple-300 font-bold text-sm sm:text-base shadow-lg flex items-center gap-2.5 transition-all transform hover:-translate-y-0.5">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i>
+                                <span>Giải Câu Đố Toán - Tin</span>
+                            </button>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Cột phải (5 cột): Minh họa Sách mở phát sáng + Chồng sách algorithm/DEVGANG/CTG + Laptop + Hoa hướng dương -->
+                    <div class="lg:col-span-5">
+                        <div class="relative bg-gradient-to-b from-indigoDeep-800/90 to-indigoDeep-950/95 rounded-2xl p-6 sm:p-8 border border-purple-300 shadow-2xl overflow-hidden">
+                            
+                            <!-- Các Hologram bay lên từ trang sách giống Poster: </>, Đồ thị cây, USB, π -->
+                            <div class="flex items-center justify-around mb-6 pt-2">
+                                <div class="animate-float-slow px-3.5 py-2 rounded-xl bg-purple-100 border border-purple-400/60 shadow-lg shadow-purple-500/20 text-indigo-800 font-mono font-bold text-lg -rotate-6">
+                                    &lt;/&gt;
+                                </div>
+                                <div class="animate-float-delayed px-3.5 py-2.5 rounded-xl bg-indigo-100/90 border border-purple-400/60 shadow-lg shadow-purple-500/20 text-indigo-800">
+                                    <!-- Icon Đồ thị (Graph) giống giữa poster -->
+                                    <svg class="w-8 h-6 stroke-purple-300 fill-purple-400" viewBox="0 0 40 28">
+                                        <line x1="8" y1="20" x2="18" y2="8" stroke-width="2"/>
+                                        <line x1="18" y1="8" x2="28" y2="18" stroke-width="2"/>
+                                        <line x1="18" y1="8" x2="32" y2="6" stroke-width="2"/>
+                                        <circle cx="8" cy="20" r="3"/>
+                                        <circle cx="18" cy="8" r="3"/>
+                                        <circle cx="28" cy="18" r="3"/>
+                                        <circle cx="32" cy="6" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="animate-float-slow w-11 h-11 rounded-xl bg-amber-500/20 border border-amber-400/60 shadow-lg shadow-amber-500/20 text-amber-700 font-serif font-extrabold text-2xl flex items-center justify-center rotate-6">
+                                    π
+                                </div>
+                            </div>
+
+                            <!-- Màn hình Code + Sách mở tri thức -->
+                            <div class="bg-indigoDeep-950/90 rounded-xl p-4 border border-indigo-200 font-mono text-xs text-slate-600 mb-5 shadow-inner">
+                                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                    </div>
+                                    <span class="text-[10px] text-purple-700">tribute_20_11.cpp — {DG} × π</span>
+                                </div>
+                                <div class="space-y-1 text-[11px] leading-relaxed">
+                                    <div><span class="text-purple-400">for</span> (<span class="text-amber-600">auto</span> teacher : <span class="text-emerald-700">To_Toan_Tin_CTG</span>) {</div>
+                                    <div class="pl-4"><span class="text-sky-600">gratitude</span> += <span class="text-amber-700">INFINITY</span>;</div>
+                                    <div class="pl-4"><span class="text-purple-400">if</span> (day == <span class="text-pink-600">"20/11"</span>) {</div>
+                                    <div class="pl-8 text-amber-700">sendDeepestThanks(DevGang, PiMC);</div>
+                                    <div class="pl-4">}</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+
+                            <!-- Chồng sách "algorithm / DEVGANG / CTG" & Bó hoa hướng dương giống góc trái Poster -->
+                            <div class="grid grid-cols-2 gap-3 items-end">
+                                <div class="space-y-1.5 font-mono text-xs">
+                                    <div class="px-3 py-1.5 rounded-lg bg-slate-100 border-l-4 border-purple-400 text-slate-700 font-semibold shadow">
+                                        📘 algorithm
+                                    </div>
+                                    <div class="px-3 py-1.5 rounded-lg bg-slate-100 border-l-4 border-amber-400 text-amber-700 font-bold shadow">
+                                        📙 DEVGANG × PiMC
+                                    </div>
+                                    <div class="px-3 py-1.5 rounded-lg bg-slate-100 border-l-4 border-pink-400 text-slate-900 font-bold shadow">
+                                        📕 CHUYÊN TIỀN GIANG
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-amber-500/20 to-purple-500/20 rounded-xl p-3.5 border border-amber-300 text-center">
+                                    <div class="text-2xl mb-1" title="Bó hoa hướng dương tri ân">🌻💐✒️</div>
+                                    <div class="font-serif font-bold text-xs text-amber-700">Tôn Sư Trọng Đạo</div>
+                                    <div class="text-[10px] text-slate-600 mt-0.5">Tổ Toán - Tin CTG</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION GIỚI THIỆU CUỘC HỢP TÁC 50:50 (DEVGANG 🤝 PIMC) -->
+        <section class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-300 text-amber-700 font-mono text-xs font-semibold uppercase tracking-wider">
+                    Sự Giao Thoa Toán Học & Công Nghệ
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">
+                    Hợp Tác Song Hành <span class="text-amber-600">50 : 50</span> Giữa DevGang & PiMC
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Dự án <strong class="text-slate-900">"Chuyến tàu Tri ân: Dấu ấn Toán - Tin"</strong> là nơi tư duy thuật toán hiện đại gặp gỡ vẻ đẹp chặt chẽ của Toán học. Hai câu lạc bộ học thuật trực thuộc Tổ Toán - Tin cùng chia sẻ trọn vẹn trách nhiệm để tạo nên món quà 20/11 ý nghĩa nhất.
+                </p>
+            </div>
+
+            <!-- Thanh tỷ lệ 50:50 trực quan -->
+            <div class="max-w-4xl mx-auto mb-12 bg-indigoDeep-900 p-4 sm:p-6 rounded-2xl border border-indigo-200 shadow-lg">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-mono font-bold mb-3">
+                    <span class="text-amber-600 flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-300">{DG}</span>
+                        CLB LẬP TRÌNH DEVGANG (50%)
+                    </span>
+                    <span class="text-purple-700 flex items-center gap-2">
+                        CLB TOÁN HỌC PIMC (50%)
+                        <span class="px-2 py-0.5 rounded bg-purple-500/20 border border-purple-300">π</span>
+                    </span>
+                </div>
+                <div class="w-full h-4 rounded-full bg-indigoDeep-950 overflow-hidden flex p-0.5 border border-indigo-200">
+                    <div class="w-1/2 h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-l-full"></div>
+                    <div class="w-1/2 h-full bg-gradient-to-r from-purple-500 to-pink-400 rounded-r-full"></div>
+                </div>
+                <div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
+                    <span>Kiến trúc Full-stack • Giao diện UI/UX • Tìm kiếm Real-time</span>
+                    <span>Biên soạn Câu đố Toán • Nội dung Tri ân • Tư liệu Thầy Cô</span>
+                </div>
+            </div>
+
+            <!-- 2 Card Chi tiết Phân công 50:50 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card DevGang (50%) -->
+                <div class="bg-indigoDeep-900/90 rounded-2xl p-6 sm:p-8 border border-amber-500/30 shadow-lg hover:border-amber-400/60 transition-all relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-300 text-amber-600 font-mono font-bold text-lg flex items-center justify-center">
+                                {DG}
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">CLB Lập trình DevGang</h3>
+                                <span class="font-mono text-xs text-amber-600">50% Công Nghệ & Kỹ Thuật Web</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-700 font-mono text-xs font-bold">50%</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="code" class="w-4 h-4 text-amber-600 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Phát triển Giao diện & Kiến trúc:</strong> Thiết kế chuẩn responsive bằng Tailwind CSS lấy cảm hứng từ Poster 20/11.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="search" class="w-4 h-4 text-amber-600 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Hệ thống Tìm kiếm & Lưu bút:</strong> Xây dựng bộ lọc giáo viên theo thời gian thực (Real-time Search) và trang chi tiết từng thầy cô.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="lock" class="w-4 h-4 text-amber-600 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Cơ chế Mở khóa & Admin:</strong> Lập trình cổng xác thực câu đố mở khóa nội dung ẩn và trình quản trị dữ liệu.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card PiMC (50%) -->
+                <div class="bg-indigoDeep-900/90 rounded-2xl p-6 sm:p-8 border border-purple-500/30 shadow-lg hover:border-purple-400/60 transition-all relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500/20 border border-purple-300 text-purple-700 font-serif font-extrabold text-2xl flex items-center justify-center">
+                                π
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">CLB Toán học PiMC</h3>
+                                <span class="font-mono text-xs text-purple-700">50% Tư Duy Toán Học & Nội Dung</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-purple-500/15 text-purple-700 font-mono text-xs font-bold">50%</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="sigma" class="w-4 h-4 text-purple-400 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Biên soạn Thử thách Câu đố:</strong> Xây dựng hệ thống bài toán logic, số học, đồ thị thú vị mang đậm dấu ấn ngày 20/11.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="heart-handshake" class="w-4 h-4 text-purple-400 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Kết nối & Thu thập Lưu bút:</strong> Tổng hợp thông điệp tri ân, kỷ niệm đáng nhớ của học sinh các khóa gửi tới từng Thầy Cô.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-purple-400 shrink-0 mt-1"></i>
+                            <span><strong class="text-slate-900">Định hướng Mỹ thuật & Poster:</strong> Đồng sáng tạo bộ nhận diện "Tri ân ngày Nhà Giáo Việt Nam 20/11".</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sơ đồ 3 Chuyên trang chính để người xem bấm vào ngay -->
+            <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div onclick="navigateTo('home')" class="cursor-pointer bg-indigoDeep-900/60 hover:bg-indigoDeep-800 p-6 rounded-2xl border border-indigo-200 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="font-mono text-xs text-amber-600">01 • index.html</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-amber-600"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-1">Trang Chủ Sự Kiện</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Giới thiệu tổng quan hành trình tri ân và sự kết hợp giữa CLB Lập trình DevGang & CLB Toán học PiMC.</p>
+                </div>
+
+                <div onclick="navigateTo('wishes')" class="cursor-pointer bg-indigoDeep-900/60 hover:bg-indigoDeep-800 p-6 rounded-2xl border border-indigo-200 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="font-mono text-xs text-amber-600">02 • wishes.html</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-amber-600"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-1">Trang Lời Chúc & Giáo Viên</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Tìm kiếm tên từng thầy cô theo thời gian thực để mở trang riêng chứa khung ảnh kỷ niệm và danh sách lời chúc.</p>
+                </div>
+
+                <div onclick="navigateTo('puzzle')" class="cursor-pointer bg-indigoDeep-900/60 hover:bg-indigoDeep-800 p-6 rounded-2xl border border-indigo-200 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="font-mono text-xs text-purple-400">03 • puzzle.html</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-1">Trang Câu Đố Toán - Tin</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Thử thách giải đố logic, toán học và thuật toán do PiMC & DevGang biên soạn để mở khóa Thiệp Vàng Tri Ân.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================================================================================== -->
+    <!--          VIEW 2: TRANG LỜI CHÚC & TÌM KIẾM GIÁO VIÊN (WISHES.HTML)                  -->
+    <!-- =================================================================================== -->
+    <main id="view-wishes" class="hidden flex-1 tech-math-bg py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Sub-view A: Danh bạ Tìm kiếm Giáo viên & Bức tường lời chúc chung -->
+            <div id="wishes-directory-subview">
+                <!-- Header trang wishes.html -->
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-300 text-amber-700 font-mono text-xs mb-3">
+                        <i data-lucide="users" class="w-3.5 h-3.5"></i>
+                        <span>TRANG LỜI CHÚC & DANH BẠ GIÁO VIÊN (wishes.html)</span>
+                    </div>
+                    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3">
+                        Quý Thầy Cô <span class="text-amber-600">Tổ Toán - Tin</span>
+                    </h1>
+                    <p class="text-slate-600 text-sm sm:text-base">
+                        Gõ tên Thầy/Cô vào ô tìm kiếm bên dưới để lọc nhanh hoặc bấm vào từng Thầy/Cô để mở <strong class="text-amber-700">Trang Tri Ân Riêng</strong> cùng toàn bộ lời chúc từ học sinh chuyên Toán - Tin.
+                    </p>
+                </div>
+
+                <!-- Thanh Tìm Kiếm Thời Gian Thực (Real-time Search Bar) & Bộ Lọc -->
+                <div class="max-w-4xl mx-auto mb-10 bg-indigoDeep-900/95 p-4 rounded-2xl border border-indigo-200 shadow-xl">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <!-- Ô tìm kiếm real-time -->
+                        <div class="relative flex-1 w-full">
+                            <i data-lucide="search" class="w-5 h-5 text-amber-600 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                            <input 
+                                type="text" 
+                                id="realtime-teacher-search" 
+                                oninput="handleTeacherSearch()"
+                                placeholder="Gõ tên Thầy/Cô hoặc chuyên môn (VD: Nguyễn Văn An, Toán, Thuật toán, C++)..." 
+                                class="w-full pl-12 pr-10 py-3.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm sm:text-base text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+                            >
+                            <button id="clear-search-btn" onclick="clearTeacherSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-indigo-900 p-1">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Các nút lọc bộ môn + Đồng bộ Google Sheet -->
+                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-center shrink-0">
+                            <button onclick="setSubjectFilter('all')" id="subj-all" class="subj-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 transition-all">
+                                Tất cả (<span id="stat-all-count">0</span>)
+                            </button>
+                            <button onclick="setSubjectFilter('Tin học')" id="subj-Tin học" class="subj-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-indigoDeep-800 text-slate-600 hover:text-indigo-900 transition-all">
+                                &lt;/&gt; Tổ Tin (<span id="stat-cs-count">0</span>)
+                            </button>
+                            <button onclick="setSubjectFilter('Toán')" id="subj-Toán" class="subj-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-indigoDeep-800 text-slate-600 hover:text-indigo-900 transition-all">
+                                π Tổ Toán (<span id="stat-math-count">0</span>)
+                            </button>
+                            <button onclick="syncFromGoogleSheet(true)" class="px-3.5 py-2.5 rounded-xl text-xs font-mono font-semibold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-700 border border-emerald-400/40 flex items-center gap-1.5 transition-all" title="Lấy dữ liệu mới nhất trực tiếp từ Google Sheet">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                                <span>Đồng bộ Sheet</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lưới Danh sách Giáo viên Tổ Toán - Tin -->
+                <div id="teachers-directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                    <!-- Được render tự động bằng JavaScript -->
+                </div>
+
+                <!-- Dòng chảy Lời chúc chung mới nhất -->
+                <div class="bg-indigoDeep-900/80 rounded-2xl p-6 sm:p-8 border border-indigo-200">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h2 class="font-serif text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <i data-lucide="message-square-heart" class="w-6 h-6 text-amber-600"></i>
+                                <span>Tất Cả Lời Chúc Từ Học Sinh Khối Chuyên Toán - Tin</span>
+                            </h2>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-1">Bấm vào tên Thầy/Cô trên mỗi lời chúc để chuyển đến trang chi tiết của Thầy/Cô đó.</p>
+                        </div>
+                        <button onclick="openQuickWishModal()" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 shadow">
+                            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                            <span>Viết lời chúc mới</span>
+                        </button>
+                    </div>
+
+                    <div id="all-wishes-feed" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Render bằng JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-view B: TRANG CHI TIẾT RIÊNG CỦA TỪNG GIÁO VIÊN (Dynamic Teacher Detail View) -->
+            <div id="teacher-detail-subview" class="hidden">
+                <!-- Nút quay lại danh sách -->
+                <button onclick="closeTeacherDetail()" class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigoDeep-800 hover:bg-indigoDeep-700 text-amber-600 font-semibold text-sm border border-indigo-200 transition-all">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Quay lại Danh sách Giáo viên (wishes.html)</span>
+                </button>
+
+                <!-- Nội dung chi tiết của giáo viên được chọn -->
+                <div id="teacher-detail-content"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- =================================================================================== -->
+    <!--             VIEW 3: TRANG CÂU ĐỐ TOÁN - TIN (PUZZLE.HTML)                           -->
+    <!-- =================================================================================== -->
+    <main id="view-puzzle" class="hidden flex-1 tech-math-bg py-12 sm:py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header trang puzzle.html -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/15 border border-purple-300 text-purple-700 font-mono text-xs mb-3">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                    <span>TRANG CÂU ĐỐ TOÁN - TIN (puzzle.html) • BIÊN SOẠN BỞI PIMC & DEVGANG</span>
+                </div>
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3">
+                    Thử Thách Giải Mã <span class="poster-neon-text">"Tọa Độ 20/11"</span>
+                </h1>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Vượt qua 3 trạm câu đố kết hợp giữa <strong class="text-purple-700">Tư duy Toán học (PiMC)</strong> và <strong class="text-amber-600">Thuật toán Lập trình (DevGang)</strong> để mở khóa <strong class="text-amber-700">Kho Báu Tri Ân Ẩn</strong> dành tặng Tổ Toán - Tin!
+                </p>
+            </div>
+
+            <!-- Thanh trạng thái Mở khóa Cổng Xác Thực -->
+            <div class="bg-indigoDeep-900/95 rounded-2xl p-6 border border-purple-300 shadow-xl mb-8">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div id="gate-lock-icon" class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-300 text-purple-700 flex items-center justify-center">
+                            <i data-lucide="lock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-slate-900 text-base sm:text-lg" id="gate-status-title">Cổng Nội Dung Ẩn: Đang Khóa (Cần giải đủ 3/3 câu đố)</h2>
+                            <p class="text-xs text-slate-500">Mỗi câu trả lời đúng sẽ cung cấp 1 mảnh ghép mật mã mở khóa bức tâm thư đặc biệt.</p>
+                        </div>
+                    </div>
+                    <div class="font-mono text-sm font-bold px-4 py-1.5 rounded-xl bg-indigoDeep-950 border border-indigo-200 text-amber-600">
+                        Tiến độ: <span id="puzzle-score-badge">0 / 3</span>
+                    </div>
+                </div>
+                <div class="w-full h-3 rounded-full bg-indigoDeep-950 overflow-hidden p-0.5 border border-indigo-200">
+                    <div id="puzzle-progress-bar" class="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-amber-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Danh sách 3 Thử thách Câu đố -->
+            <div id="puzzle-cards-container" class="space-y-6 mb-10">
+                <!-- Render tự động bằng JS -->
+            </div>
+
+            <!-- KHO BÁU TRI ÂN ẨN (MỞ KHÓA KHI GIẢI XONG 3 CÂU ĐỐ) -->
+            <div id="secret-treasure-box" class="hidden rounded-2xl p-8 sm:p-10 bg-gradient-to-br from-amber-500/20 via-purple-900/40 to-indigoDeep-900 border-2 border-amber-400 shadow-2xl relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <span class="px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 font-mono text-xs font-extrabold uppercase tracking-wider">
+                        ★ ĐÃ XÁC THỰC THÀNH CÔNG • NỘI DUNG ẨN ĐƯỢC MỞ KHÓA ★
+                    </span>
+                    <span class="font-mono text-xs text-amber-700">MẬT MÃ: 2011-CTG-INFINITY</span>
+                </div>
+
+                <h3 class="font-script text-4xl sm:text-5xl poster-neon-text mb-4">
+                    "Hằng Số Của Lòng Biết Ơn"
+                </h3>
+
+                <div class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed bg-indigoDeep-950/80 p-6 rounded-2xl border border-amber-300 mb-6">
+                    <p>
+                        Kính gửi quý Thầy Cô <strong>Tổ Toán - Tin, Trường THPT Chuyên Tiền Giang</strong>,
+                    </p>
+                    <p>
+                        Trong Toán học, có những giới hạn tiến tới vô cùng ($\lim_{x \to \infty}$), và trong Tin học, có những vòng lặp chạy mãi để giữ cho hệ thống luôn vận hành. Đối với các thế hệ học sinh chuyên Toán và chuyên Tin chúng em, sự dìu dắt, bao dung và ngọn lửa đam mê của Thầy Cô chính là hằng số đẹp đẽ nhất.
+                    </p>
+                    <p>
+                        Cảm ơn Thầy Cô vì đã kiên nhẫn sửa từng lỗi lập luận trong bài chứng minh, từng dòng code bị <em>Time Limit Exceeded</em>, và hơn hết là dạy chúng em cách làm người tử tế, bản lĩnh. Chúc Thầy Cô một mùa 20/11 thật ấm áp và rạng rỡ!
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="font-mono text-xs text-amber-700">
+                        Đồng ký tên: <strong>{DG} CLB Lập trình DevGang 🤝 π CLB Toán học PiMC</strong>
+                    </div>
+                    <button onclick="copySecretTribute()" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Sao chép Thông điệp Mở khóa</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- =================================================================================== -->
+    <!--          VIEW 4: KHU VỰC ADMIN & XUẤT 3 FILE HTML ĐỘC LẬP (ADMIN PANEL)             -->
+    <!-- =================================================================================== -->
+    <main id="view-admin" class="hidden flex-1 tech-math-bg py-12 sm:py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                <div>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-700 font-mono text-xs">
+                        KHU VỰC QUẢN TRỊ & KỸ THUẬT (DEVGANG × PIMC)
+                    </span>
+                    <h1 class="font-serif text-3xl font-bold text-slate-900 mt-2">
+                        Quản Trị Dữ Liệu & Tách File Mã Nguồn
+                    </h1>
+                </div>
+                <button onclick="resetDefaultData()" class="px-4 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 text-xs font-semibold flex items-center gap-2">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                    <span>Khôi phục dữ liệu mẫu</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Cột trái (5 cột): Thêm Giáo viên mới vào Tổ Toán - Tin -->
+                <div class="lg:col-span-5 bg-indigoDeep-900 rounded-2xl p-6 border border-indigo-200 shadow-lg">
+                    <h2 class="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="user-plus" class="w-5 h-5 text-amber-600"></i>
+                        <span>Thêm Giáo Viên Tổ Toán - Tin</span>
+                    </h2>
+                    <form id="admin-add-teacher-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Họ và tên Thầy/Cô *</label>
+                            <input type="text" id="admin-t-name" required placeholder="VD: Thầy Nguyễn Minh Tuấn" class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-200 text-sm text-slate-900">
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Bộ môn *</label>
+                                <select id="admin-t-subject" class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-200 text-sm text-slate-900">
+                                    <option value="Toán">Môn Toán (π)</option>
+                                    <option value="Tin học">Môn Tin học (&lt;/&gt;)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Chuyên đề / Vai trò *</label>
+                                <input type="text" id="admin-t-role" required placeholder="VD: Giải tích & Số học" class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-200 text-sm text-slate-900">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Thông điệp / Câu nói kỷ niệm *</label>
+                            <textarea id="admin-t-quote" rows="3" required placeholder="Nhập câu nói truyền cảm hứng hoặc thông điệp tri ân..." class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-200 text-sm text-slate-900 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition-all">
+                            + Thêm vào Danh bạ Giáo viên
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Cột phải (7 cột): Tóm tắt gửi đồng đội & Công cụ Tách 3 File HTML riêng biệt -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Box 1: Bản tóm tắt chuẩn để copy gửi cho thành viên cùng nhóm -->
+                    <div class="bg-indigoDeep-900 rounded-2xl p-6 border border-purple-500/30 shadow-lg">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                                <i data-lucide="share-2" class="w-4 h-4 text-purple-400"></i>
+                                <span>Bản Tóm Tắt Cấu Trúc Web (Gửi nhanh cho đồng đội)</span>
+                            </h3>
+                            <button onclick="copyProjectSummary()" class="px-3 py-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-indigo-800 text-xs font-semibold flex items-center gap-1.5">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                <span>Copy tóm tắt</span>
+                            </button>
+                        </div>
+                        <div id="project-summary-text" class="bg-indigoDeep-950 p-4 rounded-xl border border-indigo-200 text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
+                            <p><strong class="text-amber-600">1. Trang chủ (index.html):</strong> Lấy cảm hứng từ poster 20/11, giới thiệu tổng quan về sự kiện, ý nghĩa cuộc hợp tác 50:50 giữa CLB Lập trình DevGang và CLB Toán học PiMC dành tặng quý thầy cô Tổ Toán - Tin (THPT Chuyên Tiền Giang).</p>
+                            <p><strong class="text-amber-600">2. Trang Lời chúc (wishes.html):</strong> Nơi tìm kiếm tên từng giáo viên theo thời gian thực để xem trang riêng chứa hình ảnh kỷ niệm, thông điệp và danh sách lời chúc tri ân.</p>
+                            <p><strong class="text-amber-600">3. Trang Câu đố (puzzle.html):</strong> Các thử thách câu đố logic, toán học và thuật toán vui nhộn do PiMC & DevGang biên soạn để tương tác và mở khóa nội dung tri ân ẩn.</p>
+                        </div>
+                    </div>
+
+                    <!-- Box 2: Xuất dữ liệu JSON hiện tại -->
+                    <div class="bg-indigoDeep-900 rounded-2xl p-6 border border-emerald-500/30 shadow-lg">
+                        <h3 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+                            <i data-lucide="file-code" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Quản lý Lời chúc & Sao lưu JSON</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mb-4">
+                            Hiện có <strong id="admin-teacher-count" class="text-amber-600">0</strong> giáo viên và <strong id="admin-wish-count" class="text-amber-600">0</strong> lời chúc đang lưu trữ. Bạn có thể sao chép toàn bộ dữ liệu JSON để đồng bộ lên GitHub.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="exportDataAsJSON()" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-2">
+                                <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+                                <span>Copy toàn bộ dữ liệu JSON</span>
+                            </button>
+                            <button onclick="navigateTo('wishes')" class="px-4 py-2.5 rounded-xl bg-indigoDeep-800 hover:bg-indigoDeep-700 text-slate-900 text-xs font-semibold">
+                                Xem danh sách Giáo viên
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== MODAL VIẾT LỜI CHÚC NHANH ==================== -->
+    <div id="quick-wish-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4">
+        <div class="bg-indigoDeep-900 rounded-2xl max-w-lg w-full p-6 sm:p-8 border border-amber-300 shadow-2xl relative">
+            <button onclick="closeQuickWishModal()" class="absolute top-4 right-4 text-slate-500 hover:text-indigo-900 p-1.5 rounded-lg bg-indigoDeep-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-300 text-amber-600 flex items-center justify-center">
+                    <i data-lucide="feather" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900">Gửi Lời Chúc Tri Ân 20/11</h3>
+                    <p class="text-xs text-slate-500">Tổ Toán - Tin • Trường THPT Chuyên Tiền Giang</p>
+                </div>
+            </div>
+
+            <form id="modal-wish-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Họ tên & Lớp chuyên / Khóa của bạn *</label>
+                    <input type="text" id="modal-wish-sender" required placeholder="VD: Minh Khôi - Chuyên Tin K30 (DevGang)" class="w-full px-4 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm text-slate-900 focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Gửi đến Thầy / Cô *</label>
+                    <select id="modal-wish-teacher" class="w-full px-4 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm text-slate-900 focus:outline-none focus:border-amber-400">
+                        <!-- Đổ tự động bằng JS -->
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Thông điệp tri ân *</label>
+                    <textarea id="modal-wish-content" rows="4" required placeholder="Viết lời chúc hoặc kỷ niệm đáng nhớ của bạn với Thầy/Cô..." class="w-full px-4 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm text-slate-900 focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-lg">
+                    Gửi Lời Chúc Tri Ân
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER CHUNG ==================== -->
+    <footer class="bg-indigoDeep-950 border-t border-indigo-200 py-8 px-4 sm:px-8 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 font-mono">
+                <span class="text-amber-600 font-bold">{DG} DEVGANG</span>
+                <span>🤝</span>
+                <span class="text-purple-700 font-bold">π PIMC</span>
+                <span>— Chuyến tàu Tri ân: Dấu ấn Toán - Tin</span>
+            </div>
+            <div>
+                Kính tặng quý Thầy Cô <strong>Tổ Toán - Tin, Trường THPT Chuyên Tiền Giang</strong> nhân ngày 20/11.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="app-toast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-indigoDeep-900 text-slate-900 border border-amber-400/60 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i>
+            <span id="app-toast-msg" class="text-xs sm:text-sm font-medium"></span>
+        </div>
+    </div>
+
+    <!-- =================================================================================== -->
+    <!--                        JAVASCRIPT THUẦN XỬ LÝ LOGIC & DỮ LIỆU                       -->
+    <!-- =================================================================================== -->
+    <script>
+        // =========================================================================
+        // CẤU HÌNH KẾT NỐI TRỰC TIẾP GOOGLE SHEET (6 GIÁO VIÊN ĐẦU: TỔ TIN, CÒN LẠI: TỔ TOÁN)
+        // =========================================================================
+        const GOOGLE_SHEET_ID = "1GwAmFhTRTsi5cHgXnAY1qkDKPRgCLpNVk_4_O8nrBoQ";
+        const GOOGLE_SHEET_GID = "0";
+
+        // Dữ liệu gốc từ Google Sheet của bạn (6 thầy cô đầu là Tổ Tin học, 14 thầy cô tiếp theo là Tổ Toán)
+        const SHEET_INITIAL_ROWS = [
+            ["Văn Ngọc Loan", ""],
+            ["Nguyễn Trọng Nghĩa", "Gần ba năm đã qua, một chặng đường không dài nhưng cũng không ngắn, từ những ngày đầu tụi em còn chập chửng bước vào trường mà giờ đây nhờ sự dìu dắt của thầy tụi em cũng đã có những thành tích nhất định, nhờ những kinh nghiệm, những kiến thức mà thầy đã chỉ dạy đã giúp chúng em rất nhiều trong thời gian vừa qua, lời cuối tụi em xin chúc thầy một ngày 20.11 thật vui vẻ và ý nghĩa cũng như chúc thầy luôn thành công trên con đường giảng dạy phía trước (ĐT 12 Tin)."],
+            ["Phan Thị Bảo Thu", ""],
+            ["Lê Ngọc Thanh", "Hai năm trôi qua, cảm ơn thầy đã dìu dắt em đi qua 2 phần 3 quãng đời cấp 3 của mình. em chúc thầy có một ngày 20.11 thật vui vẻ, gia đình hạnh phúc, sức khỏe dồi dào và học sinh của thầy càng ngày càng ngoạn nha thầy!! ( Nguyễn Ngô Thành Danh)"],
+            ["Phạm Thị Kim Khánh", "Kính gửi cô, nhân ngày 20/11, em xin gửi đến cô những lời chúc tri ân sâu sắc nhất. Nếu kiến thức là một kho dữ liệu khổng lồ thì cô chính là thuật toán tối ưu nhất giúp chúng em khám phá và thấu hiểu. Em chúc cô luôn tươi trẻ, công tác tốt và tiếp tục dìu dắt các thế hệ học sinh trường THPT Chuyên Tiền Giang trở nên rực rỡ và thành công nhất trong tương lai. (Lê Ngọc Nam Phương)"],
+            ["Phạm Hoàng Huy", ""],
+            ["Nguyễn Tấn Đạt", "Chúc thầy 20/11 vui vẻ ạ ! ( Trần Long Ẩn )"],
+            ["Nguyễn Tuấn Ngọc", "Chúc thầy luôn khỏe mạnh 💪 (Bùi Phạm Minh Tú )"],
+            ["Nguyễn Thị Hồng Nhung", "Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi tới cô lời cảm ơn chân thành và sâu sắc nhất. Cảm ơn cô đã luôn kiên nhẫn đồng hành, tận tụy truyền dạy kiến thức và định hướng cho chúng em trên con đường học tập. Sự tận tâm, thầm lặng và những bài học vô giá của cô không chỉ giúp em mở rộng tri thức mà còn là động lực to lớn để em vững bước mỗi ngày. Em kính chúc cô luôn dồi dào sức khỏe, tràn đầy niềm vui và giữ vững ngọn lửa nhiệt huyết với sự nghiệp trồng người cao quý. (Nguyễn Đăng Khoa)\nCon chúc cô có một ngày 20/11 thật vui vẻ, tràn đầy niềm vui và hạnh phúc (Võ Trần Chí)"],
+            ["Đinh Công Minh", "Tuy là thầy dạy lớp em chỉ 1 học kỳ, thời gian gắn bó không quá dài, nhưng những gì thầy đem lại cho lớp em nói chung và em nói riêng còn nhiều hơn thế. Thầy rất vui vẻ, giảng bài dễ hiểu giúp cho mỗi tiết học của lớp đều rất thoải mái, tràn đầy tiếng cười. Chúc thầy trong tương lai sẽ đạt được nhiều thành công, luôn nhiệt huyết với nghề giáo để mang đến nhiều bài học chất lượng hơn nữa ạ💕(Giảng Hồng Ngọc)"],
+            ["Nguyễn Hữu Trí", "Chúc thầy 20/11 vui vẻ ạ ! ( Huỳnh Cao Thịnh Phát )"],
+            ["Ngô Thị Mỹ Phượng", "Cô ơi, mỗi tiết học của cô đều để lại cho em rất nhiều cảm hứng và niềm vui. Nhân ngày 20/11, kính chúc cô luôn mạnh khỏe, tươi trẻ và gặp hái thật nhiều điều tốt đẹp trong cuộc sống. (Nguyễn Bình Thảo An)"],
+            ["Phạm Hữu Hiệp", "Cám ơn thầy vì đã dạy dỗ chúng em trên con đường học vấn ( Huỳnh Cao Thịnh Phát )"],
+            ["Nguyễn Thành Nhân", "Cám ơn thầy đã luôn nâng đỡ dìu dắt chúng em ( Đỗ Nhật Huy ).\nTuy chỉ mới gặp thầy Nhân gần đây nhưng em vẫn rất kính trọng và yêu quý thầy ạ, em rất vui vì đã được thầy làm chủ nhiệm năm nay. Cuối cùng em chúc thầy Nhân có ngày 20/11 thật vui vẻ ạ ( Nguyễn Mai Như Hạ)"],
+            ["Trương Đoàn Quí", "Hai năm trôi qua kỷ niệm cùng người thầy kính mến biết bao. Đã từ lâu thầy là người dẫn dắt, người soi đèn cho chúng em thành công trong môn Toán. Chúc thầy 20/11 vui vẻ ( Trần Dương Phú Lễ )"],
+            ["Võ Anh Tuấn Duy", "Chúc thầy Duy 20/11 có 1 ngày thật vui vẻ cạnh học trò tụi con (Lê Hữu Khoa)\nChúc thầy 20/11 vui vẻ, hạnh phúc , luôn luôn tâm huyết với nghề và thành công trên hành trình của thầy ạ.(Phạm Huỳnh Như)\nThầy Duy thân mến, dù là em chỉ mới được học thầy được vài ngày vào những tiết Chuyên đề, nhưng thầy đã để lại ấn tượng sâu sắc trong em với sự thấu hiểu và tận tâm trong từng lời dạy của thầy. Nhân dịp 20/11 này em xin chúc thầy thật nhiều sức khỏe, đạt được nhiều thành công và sẽ luôn nhiệt huyết với nghề ạ💕(Giảng Hồng Ngọc)\nDạ em chúc thầy VATD 20/11 zui zẻ ạ. Em quý thầy lắm ạ vì năm thầy dạy tụi em là thầy mới ra trường nhma dạy vẫn siu dễ hiểu và siu có tâm. Em chúc thầy có tht nhìu sức khỏe để ra 10 cái đề ôn tập cho các bạn và các em ạ (trừ lớp em em quá ngán toán r=))))))) )<333( Phan Thị Nam Phương)"],
+            ["Lê Hoàng Hạc", "Chúc ba nhiều sức khỏe,zui ze ,đạt được những gì mong ước ,thành công trong công cuộc giảng dạy và gặp được nhiều lứa học trò so cute\nCảm ơn cha rất nhìu vì đã hết lòng giảng dạy và cứu vớt tụi con (Lê Hà Khánh Vy)"],
+            ["Nguyễn Phạm Minh Trúc", "Chúc cô 20/11 vui vẻ và mãi xinh đẹp !!! ( Trần Long Ẩn )"],
+            ["Cao Thị Thanh Trúc", "Chúc cô giáo xinh đẹp của chúng em có một ngày 20/11 thật rực rỡ và đáng nhớ!. Cảm ơn cô vì những tiết học luôn tràn ngập tiếng cười và năng lượng tích cực. Chúc cô lúc nào cũng trẻ trung, yêu đời và gặt hái thật nhiều thành công trên con đường sự nghiệp ạ.(Nguyễn Bình Thảo An)"],
+            ["Nguyễn Anh Sỹ", "Tính từ lúc thầy dạy lớp em đến giờ là đã hơn nửa học kỳ. Trong lớp lâu lâu thầy sẽ cho những bài toán khó, điều đó đã giúp khơi gợi sự tò mò, sự khao khát giải được bài toán đó trong em. Thầy như đã tiếp thêm động lực cho những trái tim yêu Toán. Chúc thầy trong tương lai sẽ đạt được nhiều thành công, sẽ thật nhiệt huyết trong công việc để đưa ra được nhiều bài giảng chất lượng hơn nữa ạ💕(Giảng Hồng Ngọc)"]
+        ];
+
+        // Hàm tạo chữ viết tắt Avatar từ họ tên
+        function getInitialsFromName(name) {
+            const parts = String(name || '').trim().split(/\s+/).filter(Boolean);
+            if (parts.length >= 2) {
+                return (parts[parts.length - 2][0] + parts[parts.length - 1][0]).toUpperCase();
+            }
+            return String(name || 'GV').slice(0, 2).toUpperCase();
+        }
+
+        // Hàm tách nhiều lời chúc trong 1 ô của Google Sheet thành danh sách từng lời chúc + tên người gửi trong ngoặc (...)
+        function parseWishesFromCell(rawCell, teacherId) {
+            if (!rawCell || !String(rawCell).trim()) return [];
+            const text = String(rawCell).replace(/\r/g, '').trim();
+            const parsedList = [];
+
+            const regex = /([\s\S]*?)\(([A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][^()]{1,45})\)(?:\s*\.)?/g;
+            let match;
+            let lastIndex = 0;
+            let idx = 1;
+
+            while ((match = regex.exec(text)) !== null) {
+                const content = match[1].trim();
+                const sender = match[2].trim();
+                if (content) {
+                    parsedList.push({
+                        id: `w_${teacherId}_${idx++}`,
+                        teacherId: teacherId,
+                        sender: sender,
+                        content: content,
+                        date: "20/11 • Google Sheet"
+                    });
+                    lastIndex = regex.lastIndex;
+                }
+            }
+
+            const remaining = text.slice(lastIndex).trim();
+            if (remaining) {
+                parsedList.push({
+                    id: `w_${teacherId}_${idx++}`,
+                    teacherId: teacherId,
+                    sender: "Học sinh Chuyên Toán - Tin",
+                    content: remaining,
+                    date: "20/11 • Google Sheet"
+                });
+            }
+
+            if (parsedList.length === 0 && text) {
+                parsedList.push({
+                    id: `w_${teacherId}_1`,
+                    teacherId: teacherId,
+                    sender: "Học sinh Chuyên Toán - Tin",
+                    content: text,
+                    date: "20/11 • Google Sheet"
+                });
+            }
+
+            return parsedList;
+        }
+
+        // Hàm chuyển đổi mảng dòng từ Google Sheet thành danh sách Giáo viên (6 đầu = Tin học, còn lại = Toán) & Lời chúc
+        function buildDataFromSheetRows(rows) {
+            const cleanRows = rows
+                .map(r => [
+                    String(r[0] || '').replace(/[\r\n]+/g, ' ').trim(),
+                    String(r[1] || '').trim()
+                ])
+                .filter(r => r[0] && r[0].toUpperCase() !== 'TÊN GIÁO VIÊN');
+
+            const newTeachers = [];
+            const newWishes = [];
+
+            cleanRows.forEach((row, index) => {
+                const name = row[0];
+                const rawWishCell = row[1];
+                const teacherId = `t${index + 1}`;
+                // 6 giáo viên đầu tiên (index 0..5) thuộc Tổ Tin học, còn lại thuộc Tổ Toán
+                const isCS = index < 6;
+                const subject = isCS ? "Tin học" : "Toán";
+                const role = isCS
+                    ? "Giáo viên Tổ Tin học • THPT Chuyên Tiền Giang"
+                    : "Giáo viên Tổ Toán • THPT Chuyên Tiền Giang";
+
+                const teacherWishes = parseWishesFromCell(rawWishCell, teacherId);
+                teacherWishes.forEach(w => newWishes.push(w));
+
+                const defaultQuote = isCS
+                    ? "Nếu kiến thức là một kho dữ liệu khổng lồ thì sự tận tâm của Thầy/Cô chính là thuật toán tối ưu nhất dẫn lối chúng em."
+                    : "Cảm ơn Thầy/Cô đã luôn kiên nhẫn mở ra vẻ đẹp kỳ diệu của Toán học và truyền lửa đam mê cho các thế hệ học trò.";
+
+                const firstWishPreview = teacherWishes.length > 0
+                    ? (teacherWishes[0].content.length > 140 ? teacherWishes[0].content.slice(0, 140) + "..." : teacherWishes[0].content)
+                    : defaultQuote;
+
+                newTeachers.push({
+                    id: teacherId,
+                    name: name,
+                    subject: subject,
+                    role: role,
+                    avatarText: getInitialsFromName(name),
+                    quote: firstWishPreview,
+                    memoryNote: isCS
+                        ? "Người truyền lửa đam mê Lập trình & Công nghệ tại Tổ Toán - Tin, THPT Chuyên Tiền Giang."
+                        : "Người lái đò tận tụy bồi dưỡng tư duy Toán học tại Tổ Toán - Tin, THPT Chuyên Tiền Giang."
+                });
+            });
+
+            // Ghép thêm lời chúc hoặc giáo viên do người dùng thêm cục bộ trên trình duyệt
+            try {
+                const customWishes = JSON.parse(localStorage.getItem('ctg_2011_custom_wishes') || '[]');
+                const customTeachers = JSON.parse(localStorage.getItem('ctg_2011_custom_teachers') || '[]');
+                teachers = [...newTeachers, ...customTeachers];
+                wishes = [...customWishes, ...newWishes];
+            } catch (e) {
+                teachers = newTeachers;
+                wishes = newWishes;
+            }
+        }
+
+        // Kết nối trực tiếp Google Sheet theo thời gian thực bằng JSONP (Google Visualization API - vượt rào cản CORS trên mọi trình duyệt & GitHub Pages)
+        function syncFromGoogleSheet(showNotification = false) {
+            const callbackName = 'gvizSheetCallback_' + Date.now();
+            const script = document.createElement('script');
+            let isHandled = false;
+
+            window[callbackName] = function(response) {
+                isHandled = true;
+                try {
+                    if (response && response.table && response.table.rows) {
+                        const liveRows = response.table.rows.map(r => {
+                            const colA = r.c && r.c[0] && r.c[0].v != null ? String(r.c[0].v) : '';
+                            const colB = r.c && r.c[1] && r.c[1].v != null ? String(r.c[1].v) : '';
+                            return [colA, colB];
+                        });
+                        if (liveRows.length > 0) {
+                            buildDataFromSheetRows(liveRows);
+                            renderDirectory();
+                            renderAllWishesFeed();
+                            populateTeacherSelectModal();
+                            updateAdminStats();
+                            if (activeTeacherDetailId) {
+                                openTeacherDetail(activeTeacherDetailId);
+                            }
+                            if (showNotification) {
+                                showToast('Đã đồng bộ dữ liệu trực tiếp mới nhất từ Google Sheet!');
+                            }
+                        }
+                    }
+                } catch (err) {
+                    console.warn('Không thể phân tích phản hồi Google Sheet:', err);
+                } finally {
+                    delete window[callbackName];
+                    script.remove();
+                }
+            };
+
+            script.onerror = function() {
+                if (!isHandled && showNotification) {
+                    showToast('Đang hiển thị 20 Giáo viên & Lời chúc từ Sheet (Hãy bật Chia sẻ công khai trên Sheet để cập nhật realtime)!');
+                }
+                delete window[callbackName];
+                script.remove();
+            };
+
+            script.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=responseHandler:${callbackName}&gid=${GOOGLE_SHEET_GID}`;
+            document.body.appendChild(script);
+        }
+
+        // 3. DỮ LIỆU 3 BÀI TOÁN 20/11 DO CLB TOÁN HỌC PIMC BIÊN SOẠN (CHÍNH XÁC THEO ẢNH ĐỀ BÀI)
+        const PUZZLES = [
+            {
+                id: 1,
+                club: "CLB Toán học PiMC • Giải tích & Tiếp tuyến",
+                badge: "π BÀI 01",
+                title: "Bài 1. Hàm Số “Độ Vui” Của Thầy Hiệp",
+                question: `Nhân dịp Ngày Nhà giáo Việt Nam $20/11$, sau nhiều ngày quan sát và tính toán, câu lạc bộ <strong>PiMC</strong> đã tìm ra “độ vui” của <strong>thầy Hiệp</strong> được mô tả bởi hàm số $f(x) = \\frac{ax + b}{x^2 + 1}$, trong đó $a, b$ là các hằng số. Biết đồ thị hàm số đi qua điểm $A\\left(0; \\frac{16}{11}\\right)$ và đường thẳng $\\Delta$ đi qua hai điểm $A, C(4; 0)$ là tiếp tuyến của đồ thị tại một điểm khác $A$. Gọi $m$ và $T$ lần lượt là giá trị lớn nhất và giá trị nhỏ nhất của $f(x)$ trên đoạn $[-3; 2]$. Tính $m - T$.`,
+                hint: "Gợi ý từ PiMC: Đồ thị qua A(0; 16/11) ⇒ b = 16/11. Đường thẳng Δ đi qua A(0; 16/11) và C(4; 0) có phương trình y = (-4x + 16)/11, tiếp xúc đồ thị tại x₀ = 2 ⇒ a = 12/11. Khi đó m = max f(x) = f(1/3) = 18/11 và T = min f(x) = f(-3) = -2/11.",
+                validAnswers: ["20/11", "1.82", "1,82"],
+                placeholder: "Nhập kết quả phân số tối giản (VD: 20/11)..."
+            },
+            {
+                id: 2,
+                club: "CLB Toán học PiMC • Số học & Mật mã",
+                badge: "π BÀI 02",
+                title: "Bài 2. Mật Mã Chiếc Hộp Quà 20/11",
+                question: `Trong sự kiện tri ân Ngày Nhà giáo Việt Nam $20/11$ của câu lạc bộ <strong>PiMC</strong>, ban tổ chức chuẩn bị một chiếc hộp quà được khóa bằng mật mã. Tuy nhiên, bạn <strong>Phú Lễ</strong> đã vô tình làm mất tờ giấy ghi mật mã. May mắn thay, một số bạn vẫn nhớ được những dữ kiện sau: bạn <strong>Hữu Duy</strong> nhớ rằng mật mã là một số có bốn chữ số đôi một khác nhau và chia hết cho $2$; bạn <strong>Long Ẩn</strong> nhớ rằng khi đảo ngược thứ tự các chữ số, ta được một số mới lớn hơn số ban đầu đúng $909$ đơn vị; còn em <strong>Chí Thiện</strong> khẳng định chữ số hàng trăm lớn hơn chữ số hàng nghìn đúng $8$ đơn vị. Hãy tìm mật mã của chiếc hộp quà.`,
+                hint: "Gợi ý từ PiMC: Gọi mật mã 4 chữ số là abcd. Vì chữ số hàng trăm lớn hơn hàng nghìn 8 đơn vị (b - a = 8) nên a = 1, b = 9. Kết hợp dcba - abcd = 909 và d chẵn để tìm mật mã!",
+                validAnswers: ["1982"],
+                placeholder: "Nhập mật mã gồm 4 chữ số..."
+            },
+            {
+                id: 3,
+                club: "CLB Toán học PiMC • Tổ hợp 35 Lớp Chuyên Tiền Giang",
+                badge: "🤝 BÀI 03",
+                title: "Bài 3. Hoạt Động Tri Ân Trường THPT Chuyên Tiền Giang",
+                question: `Nhân dịp kỷ niệm Ngày Nhà giáo Việt Nam $20/11/2026$, <strong>Trường THPT Chuyên Tiền Giang</strong> tổ chức các hoạt động nhằm tri ân thầy cô giáo. Biết rằng trường có tổng cộng $35$ lớp học, trong đó khối $10$ có $14$ lớp, khối $11$ có $10$ lớp và khối $12$ có $11$ lớp. Trong hoạt động thứ nhất, nhà trường chọn $5$ lớp thuộc cùng một khối bất kỳ trong ba khối để biểu diễn văn nghệ chào mừng ngày lễ. Gọi $a$ là số cách chọn các lớp tham gia hoạt động này. Trong hoạt động thứ hai, nhà trường chỉ lựa chọn một trong hai phương án: chọn $2$ lớp bất kỳ trong tổng số $35$ lớp để trang trí sân khấu, hoặc chọn $1$ lớp thuộc khối $11$ và $1$ lớp thuộc khối $12$ để đại diện trao tặng hoa và quà cho các thầy cô giáo. Gọi $b$ là tổng số cách chọn các lớp cho hoạt động thứ hai. Tính $a - b$.`,
+                hint: "Gợi ý từ PiMC: a = C(14,5) + C(10,5) + C(11,5) = 2716; b = C(35,2) + 10 × 11 = 705. Hãy tính hiệu a - b!",
+                validAnswers: ["2011"],
+                placeholder: "Nhập giá trị nguyên của a - b..."
+            }
+        ];
+
+        // State toàn cục
+        let teachers = [];
+        let wishes = [];
+        let currentSubjectFilter = 'all';
+        let solvedPuzzleIds = new Set();
+        let activeTeacherDetailId = null;
+
+        // ==================== KHỞI TẠO ỨNG DỤNG ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppData();
+            renderDirectory();
+            renderAllWishesFeed();
+            renderPuzzlesView();
+            populateTeacherSelectModal();
+            updateAdminStats();
+            setupForms();
+            lucide.createIcons();
+            // Tự động đồng bộ trực tiếp từ Google Sheet ngay khi mở trang
+            syncFromGoogleSheet(false);
+        });
+
+        function loadAppData() {
+            buildDataFromSheetRows(SHEET_INITIAL_ROWS);
+        }
+
+        function saveAppData() {
+            updateAdminStats();
+        }
+
+        // ==================== ĐIỀU HƯỚNG GIỮA CÁC TRANG (MULTI-PAGE ROUTING) ====================
+        function navigateTo(viewName) {
+            const views = ['home', 'wishes', 'puzzle', 'admin'];
+            const routeNames = {
+                home: 'index.html',
+                wishes: 'wishes.html',
+                puzzle: 'puzzle.html',
+                admin: 'admin.html'
+            };
+
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) el.classList.add('hidden');
+
+                const navBtn = document.getElementById(`nav-${v}`);
+                if (navBtn) {
+                    navBtn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-sm');
+                    navBtn.classList.add('text-slate-600', 'hover:text-indigo-900', 'hover:bg-indigoDeep-800');
+                }
+            });
+
+            const targetView = document.getElementById(`view-${viewName}`);
+            if (targetView) targetView.classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`nav-${viewName}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600', 'hover:text-indigo-900', 'hover:bg-indigoDeep-800');
+            }
+
+            const routeLbl = document.getElementById('current-route-label'); if (routeLbl) routeLbl.textContent = routeNames[viewName] || 'index.html';
+
+            if (viewName === 'wishes' && !activeTeacherDetailId) {
+                closeTeacherDetail();
+            }
+
+            if (viewName === 'puzzle' && window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // ==================== XỬ LÝ TRANG WISHES.HTML (TÌM KIẾM & CHI TIẾT GIÁO VIÊN) ====================
+        function handleTeacherSearch() {
+            const input = document.getElementById('realtime-teacher-search');
+            const clearBtn = document.getElementById('clear-search-btn');
+            if (input.value.trim().length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+            renderDirectory();
+        }
+
+        function clearTeacherSearch() {
+            document.getElementById('realtime-teacher-search').value = '';
+            document.getElementById('clear-search-btn').classList.add('hidden');
+            renderDirectory();
+        }
+
+        function setSubjectFilter(subj) {
+            currentSubjectFilter = subj;
+            document.querySelectorAll('.subj-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-slate-950', 'font-bold');
+                btn.classList.add('bg-indigoDeep-800', 'text-slate-600');
+            });
+            const active = document.getElementById(`subj-${subj}`);
+            if (active) {
+                active.classList.add('bg-amber-500', 'text-slate-950', 'font-bold');
+                active.classList.remove('bg-indigoDeep-800', 'text-slate-600');
+            }
+            renderDirectory();
+        }
+
+        function renderDirectory() {
+            // Cập nhật số lượng trên các nút lọc
+            document.getElementById('stat-all-count').textContent = teachers.length;
+            document.getElementById('stat-math-count').textContent = teachers.filter(t => t.subject === 'Toán').length;
+            document.getElementById('stat-cs-count').textContent = teachers.filter(t => t.subject === 'Tin học').length;
+
+            const query = (document.getElementById('realtime-teacher-search')?.value || '').toLowerCase().trim();
+            const grid = document.getElementById('teachers-directory-grid');
+
+            const filtered = teachers.filter(t => {
+                const matchSubj = currentSubjectFilter === 'all' || t.subject === currentSubjectFilter;
+                const teacherWishes = wishes.filter(w => w.teacherId === t.id);
+                const matchWish = teacherWishes.some(w =>
+                    w.content.toLowerCase().includes(query) ||
+                    w.sender.toLowerCase().includes(query)
+                );
+                const matchQuery = !query ||
+                                   t.name.toLowerCase().includes(query) ||
+                                   t.role.toLowerCase().includes(query) ||
+                                   t.subject.toLowerCase().includes(query) ||
+                                   matchWish;
+                return matchSubj && matchQuery;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full bg-indigoDeep-900/90 rounded-2xl p-10 text-center border border-indigo-200">
+                        <p class="text-slate-600 text-base mb-2">Không tìm thấy giáo viên nào khớp với từ khóa <strong class="text-amber-600">"${escapeHTML(query)}"</strong></p>
+                        <button onclick="clearTeacherSearch(); setSubjectFilter('all');" class="mt-2 px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs">
+                            Hiển thị lại tất cả Thầy Cô
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(t => {
+                const teacherWishes = wishes.filter(w => w.teacherId === t.id);
+                const isMath = t.subject === 'Toán';
+
+                return `
+                    <article onclick="openTeacherDetail('${t.id}')" class="cursor-pointer bg-indigoDeep-900/90 hover:bg-indigoDeep-800/95 rounded-2xl p-6 border border-indigo-200 hover:border-amber-400/60 shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <!-- Header Card -->
+                            <div class="flex items-start justify-between gap-3 mb-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-14 h-14 rounded-2xl ${isMath ? 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white' : 'bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950'} font-serif font-extrabold text-lg flex items-center justify-center shadow-md shrink-0">
+                                        ${escapeHTML(t.avatarText || (isMath ? 'π' : '</>'))}
+                                    </div>
+                                    <div>
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold mb-1 ${isMath ? 'bg-purple-500/20 text-purple-700 border border-purple-300' : 'bg-amber-500/20 text-amber-700 border border-amber-300'}">
+                                            ${isMath ? 'π Tổ Toán' : '</> Tổ Tin học'}
+                                        </span>
+                                        <h3 class="font-serif text-xl font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
+                                            ${escapeHTML(t.name)}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-xs font-medium text-amber-600/90 mb-3 flex items-center gap-1.5">
+                                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                                <span>${escapeHTML(t.role)}</span>
+                            </p>
+
+                            <blockquote class="bg-indigoDeep-950/80 rounded-xl p-3.5 border-l-2 ${isMath ? 'border-purple-400' : 'border-amber-400'} text-xs sm:text-sm text-slate-600 italic leading-relaxed mb-5">
+                                “${escapeHTML(t.quote)}”
+                            </blockquote>
+                        </div>
+
+                        <div class="pt-3 border-t border-indigo-200 flex items-center justify-between text-xs">
+                            <span class="font-mono text-slate-500 flex items-center gap-1.5">
+                                <i data-lucide="message-square-heart" class="w-4 h-4 text-pink-400"></i>
+                                <span><strong class="text-slate-900">${teacherWishes.length}</strong> lời chúc tri ân</span>
+                            </span>
+                            <span class="font-bold text-amber-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                <span>Xem trang riêng</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </span>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        // Mở Trang Chi Tiết Riêng của từng Giáo viên (Dynamic Teacher Detail View)
+        function openTeacherDetail(teacherId) {
+            const teacher = teachers.find(t => t.id === teacherId);
+            if (!teacher) return;
+
+            activeTeacherDetailId = teacherId;
+            navigateTo('wishes');
+
+            document.getElementById('wishes-directory-subview').classList.add('hidden');
+            const detailSubview = document.getElementById('teacher-detail-subview');
+            detailSubview.classList.remove('hidden');
+
+            const routeLbl = document.getElementById('current-route-label'); if (routeLbl) routeLbl.textContent = `wishes.html?teacher=${teacher.id}`;
+
+            const teacherWishes = wishes.filter(w => w.teacherId === teacher.id);
+            const isMath = teacher.subject === 'Toán';
+
+            const container = document.getElementById('teacher-detail-content');
+            container.innerHTML = `
+                <!-- Banner Kỷ niệm của Giáo viên -->
+                <div class="bg-gradient-to-br from-indigoDeep-900 via-indigoDeep-800 to-purple-950/60 rounded-2xl p-6 sm:p-10 border border-amber-300 shadow-2xl mb-8 relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Khung ảnh kỷ niệm / Minh họa tri ân -->
+                        <div class="lg:col-span-4 text-center">
+                            <div class="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-2xl ${isMath ? 'bg-gradient-to-br from-purple-500/30 to-indigo-600/30 border-2 border-purple-400' : 'bg-gradient-to-br from-amber-500/30 to-orange-500/30 border-2 border-amber-400'} flex flex-col items-center justify-center p-4 shadow-xl relative">
+                                <span class="font-serif text-4xl sm:text-5xl font-extrabold text-slate-900 mb-2">
+                                    ${escapeHTML(teacher.avatarText || (isMath ? 'π' : '</>'))}
+                                </span>
+                                <span class="px-3 py-1 rounded-full bg-indigoDeep-950/90 text-amber-700 font-mono text-[11px]">
+                                    ${isMath ? 'π Tổ Toán CTG' : '</> Tổ Tin học CTG'}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Thông điệp Tri ân cá nhân -->
+                        <div class="lg:col-span-8">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 font-mono text-xs mb-3">
+                                <span>TRANG TRI ÂN CÁ NHÂN • 20/11</span>
+                            </div>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mb-2">
+                                ${escapeHTML(teacher.name)}
+                            </h2>
+                            <p class="text-sm font-semibold text-purple-700 mb-4">
+                                ${escapeHTML(teacher.role)}
+                            </p>
+                            <div class="bg-indigoDeep-950/80 rounded-2xl p-5 border-l-4 border-amber-400 text-slate-700 italic text-sm sm:text-base leading-relaxed mb-4">
+                                “${escapeHTML(teacher.quote)}”
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                <span><strong>Dấu ấn kỷ niệm:</strong> ${escapeHTML(teacher.memoryNote)}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khu vực Lời chúc của học sinh gửi riêng cho Thầy/Cô này -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Danh sách lời chúc (7 cột) -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <h3 class="font-serif text-2xl font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="heart" class="w-5 h-5 text-pink-400"></i>
+                            <span>Lời Chúc Gửi Đến ${escapeHTML(teacher.name)} (${teacherWishes.length})</span>
+                        </h3>
+
+                        ${teacherWishes.length === 0 ? `
+                            <div class="bg-indigoDeep-900 rounded-2xl p-8 border border-indigo-200 text-center text-slate-500 text-sm">
+                                Hãy là người đầu tiên gửi lời chúc 20/11 đến ${escapeHTML(teacher.name)} ở khung bên cạnh nhé!
+                            </div>
+                        ` : teacherWishes.map(w => `
+                            <div class="bg-indigoDeep-900 rounded-2xl p-5 border border-indigo-200 shadow-md">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="font-bold text-amber-600 text-sm">✍️ ${escapeHTML(w.sender)}</span>
+                                    <span class="font-mono text-[11px] text-slate-500">${escapeHTML(w.date)}</span>
+                                </div>
+                                <p class="text-slate-700 text-sm leading-relaxed whitespace-pre-line">${escapeHTML(w.content)}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- Form gửi lời chúc trực tiếp cho Thầy/Cô này (5 cột) -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-indigoDeep-900 rounded-2xl p-6 border border-amber-300 shadow-xl sticky top-24">
+                            <h4 class="font-serif text-xl font-bold text-slate-900 mb-1">
+                                Viết Lưu Bút Tặng ${escapeHTML(teacher.name)}
+                            </h4>
+                            <p class="text-xs text-slate-500 mb-4">Lời chúc của bạn sẽ được ghim trực tiếp lên trang kỷ niệm của Thầy/Cô.</p>
+
+                            <form onsubmit="submitDirectTeacherWish(event, '${teacher.id}')" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Tên của bạn & Lớp / Khóa *</label>
+                                    <input type="text" id="direct-wish-sender" required placeholder="VD: Nguyễn Ngô Thành Danh - 12 Tin" class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm text-slate-900 focus:outline-none focus:border-amber-400">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nội dung lời chúc *</label>
+                                    <textarea id="direct-wish-content" rows="4" required placeholder="Kính chúc Thầy/Cô ngày 20/11..." class="w-full px-3.5 py-2.5 rounded-xl bg-indigoDeep-950 border border-indigo-300 text-sm text-slate-900 focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-lg">
+                                    Gửi Lời Chúc Ngay
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        function closeTeacherDetail() {
+            activeTeacherDetailId = null;
+            document.getElementById('teacher-detail-subview').classList.add('hidden');
+            document.getElementById('wishes-directory-subview').classList.remove('hidden');
+            const routeLbl = document.getElementById('current-route-label'); if (routeLbl) routeLbl.textContent = 'wishes.html';
+            renderDirectory();
+            renderAllWishesFeed();
+        }
+
+        function submitDirectTeacherWish(e, teacherId) {
+            e.preventDefault();
+            const sender = document.getElementById('direct-wish-sender').value.trim();
+            const content = document.getElementById('direct-wish-content').value.trim();
+            if (!sender || !content) return;
+
+            const newWish = {
+                id: 'w_' + Date.now(),
+                teacherId,
+                sender,
+                content,
+                date: 'Vừa gửi • 20/11'
+            };
+
+            wishes.unshift(newWish);
+            try {
+                const customWishes = JSON.parse(localStorage.getItem('ctg_2011_custom_wishes') || '[]');
+                customWishes.unshift(newWish);
+                localStorage.setItem('ctg_2011_custom_wishes', JSON.stringify(customWishes));
+            } catch (err) {}
+
+            saveAppData();
+            openTeacherDetail(teacherId);
+            showToast('Đã đăng lời chúc lên trang kỷ niệm của Thầy/Cô!');
+        }
+
+        function renderAllWishesFeed() {
+            const feed = document.getElementById('all-wishes-feed');
+            if (!feed) return;
+
+            feed.innerHTML = wishes.map(w => {
+                const t = teachers.find(item => item.id === w.teacherId);
+                const teacherName = t ? t.name : 'Toàn thể Tổ Toán - Tin';
+
+                return `
+                    <div class="bg-indigoDeep-950/90 rounded-xl p-5 border border-indigo-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="font-bold text-amber-600 text-sm">✍️ ${escapeHTML(w.sender)}</span>
+                                <span class="font-mono text-[11px] text-slate-500">${escapeHTML(w.date)}</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">“${escapeHTML(w.content)}”</p>
+                        </div>
+                        <div class="pt-2.5 border-t border-indigo-500/15 flex items-center justify-between text-xs">
+                            <span class="text-slate-500">Kính gửi Thầy/Cô:</span>
+                            <button onclick="openTeacherDetail('${w.teacherId}')" class="font-semibold text-amber-600 hover:underline flex items-center gap-1">
+                                <span>${escapeHTML(teacherName)}</span>
+                                <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        // ==================== XỬ LÝ TRANG PUZZLE.HTML (CÂU ĐỐ TOÁN - TIN) ====================
+        function renderPuzzlesView() {
+            const container = document.getElementById('puzzle-cards-container');
+            if (!container) return;
+
+            const solvedCount = solvedPuzzleIds.size;
+            document.getElementById('puzzle-score-badge').textContent = `${solvedCount} / ${PUZZLES.length}`;
+            document.getElementById('puzzle-progress-bar').style.width = `${(solvedCount / PUZZLES.length) * 100}%`;
+
+            if (solvedCount === PUZZLES.length) {
+                document.getElementById('gate-status-title').textContent = 'Cổng Nội Dung Ẩn: ĐÃ MỞ KHÓA THÀNH CÔNG!';
+                document.getElementById('secret-treasure-box').classList.remove('hidden');
+            }
+
+            container.innerHTML = PUZZLES.map(p => {
+                const isSolved = solvedPuzzleIds.has(p.id);
+                return `
+                    <div class="bg-indigoDeep-900/95 rounded-2xl p-6 sm:p-8 border ${isSolved ? 'border-emerald-400/60' : 'border-indigo-200'} shadow-lg transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-purple-500/20 border border-purple-300 font-mono text-xs font-bold text-purple-700">
+                                    ${p.badge}
+                                </span>
+                                <span class="text-xs font-mono text-slate-500">${p.club}</span>
+                            </div>
+                            ${isSolved 
+                                ? '<span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-700 font-mono text-xs font-bold">✓ Đã giải mã</span>' 
+                                : '<span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-700 font-mono text-xs">Đang chờ giải mã</span>'}
+                        </div>
+
+                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">${p.title}</h3>
+                        <p class="text-slate-700 text-sm sm:text-base leading-relaxed mb-3">${p.question}</p>
+                        <p class="text-xs text-purple-700/80 italic mb-5">${p.hint}</p>
+
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input 
+                                type="text" 
+                                id="puzzle-ans-${p.id}" 
+                                ${isSolved ? `disabled value="${p.validAnswers[0]}"` : ''}
+                                onkeydown="if(event.key==='Enter') verifyPuzzle(${p.id})"
+                                placeholder="${p.placeholder}" 
+                                class="flex-1 px-4 py-3 rounded-xl bg-indigoDeep-950 border border-indigo-300 font-mono text-sm text-amber-700 focus:outline-none focus:border-amber-400 disabled:opacity-60"
+                            >
+                            <button 
+                                onclick="verifyPuzzle(${p.id})" 
+                                ${isSolved ? 'disabled' : ''}
+                                class="px-6 py-3 rounded-xl font-bold text-sm transition-all ${isSolved ? 'bg-emerald-500/20 text-emerald-700 cursor-default' : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md'}"
+                            >
+                                ${isSolved ? 'Đã Mở Khóa ✓' : 'Xác Thực Đáp Án'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+        }
+
+        function verifyPuzzle(id) {
+            const puzzle = PUZZLES.find(item => item.id === id);
+            const input = document.getElementById(`puzzle-ans-${id}`);
+            const val = input.value.trim().toLowerCase().replace(/\s+/g, '');
+
+            if (!val) {
+                showToast('Hãy nhập đáp án của bạn trước khi xác thực nhé!');
+                return;
+            }
+
+            if (puzzle.validAnswers.includes(val)) {
+                solvedPuzzleIds.add(id);
+                renderPuzzlesView();
+                if (solvedPuzzleIds.size === PUZZLES.length) {
+                    showToast('Tuyệt vời! Bạn đã giải hết 3 bài toán PiMC và mở khóa Kho Báu Tri Ân!');
+                    document.getElementById('secret-treasure-box').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    showToast(`Chính xác! Đã mở khóa Bài 0${id}.`);
+                }
+            } else {
+                showToast('Đáp án chưa chính xác, hãy xem kỹ gợi ý từ PiMC & DevGang nhé!');
+            }
+        }
+
+        function copySecretTribute() {
+            const msg = "Kính chúc quý Thầy Cô Tổ Toán - Tin, Trường THPT Chuyên Tiền Giang một mùa 20/11 thật ấm áp, hạnh phúc và rạng rỡ! — CLB Lập trình DevGang 🤝 CLB Toán học PiMC";
+            copyToClipboard(msg);
+            showToast('Đã sao chép thông điệp tri ân mở khóa!');
+        }
+
+        // ==================== MODAL & ADMIN FUNCTIONS ====================
+        function populateTeacherSelectModal() {
+            const sel = document.getElementById('modal-wish-teacher');
+            if (!sel) return;
+            sel.innerHTML = teachers.map(t => `<option value="${t.id}">${escapeHTML(t.name)} (Tổ ${escapeHTML(t.subject)})</option>`).join('');
+        }
+
+        function openQuickWishModal() {
+            populateTeacherSelectModal();
+            const modal = document.getElementById('quick-wish-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQuickWishModal() {
+            const modal = document.getElementById('quick-wish-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function setupForms() {
+            // Form gửi lời chúc từ Modal
+            document.getElementById('modal-wish-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const sender = document.getElementById('modal-wish-sender').value.trim();
+                const teacherId = document.getElementById('modal-wish-teacher').value;
+                const content = document.getElementById('modal-wish-content').value.trim();
+
+                const newWish = {
+                    id: 'w_' + Date.now(),
+                    teacherId,
+                    sender,
+                    content,
+                    date: 'Vừa gửi • 20/11'
+                };
+
+                wishes.unshift(newWish);
+                try {
+                    const customWishes = JSON.parse(localStorage.getItem('ctg_2011_custom_wishes') || '[]');
+                    customWishes.unshift(newWish);
+                    localStorage.setItem('ctg_2011_custom_wishes', JSON.stringify(customWishes));
+                } catch (err) {}
+
+                saveAppData();
+                document.getElementById('modal-wish-content').value = '';
+                closeQuickWishModal();
+                openTeacherDetail(teacherId);
+                showToast('Lời chúc của bạn đã được gửi thành công!');
+            });
+
+            // Form thêm giáo viên mới trong Admin
+            document.getElementById('admin-add-teacher-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('admin-t-name').value.trim();
+                const subject = document.getElementById('admin-t-subject').value;
+                const role = document.getElementById('admin-t-role').value.trim();
+                const quote = document.getElementById('admin-t-quote').value.trim();
+
+                const newTeacher = {
+                    id: 't_' + Date.now(),
+                    name,
+                    subject,
+                    role,
+                    avatarText: getInitialsFromName(name),
+                    quote,
+                    memoryNote: 'Người thầy, người cô tận tâm của Tổ Toán - Tin, THPT Chuyên Tiền Giang.'
+                };
+
+                teachers.push(newTeacher);
+                try {
+                    const customTeachers = JSON.parse(localStorage.getItem('ctg_2011_custom_teachers') || '[]');
+                    customTeachers.push(newTeacher);
+                    localStorage.setItem('ctg_2011_custom_teachers', JSON.stringify(customTeachers));
+                } catch (err) {}
+
+                saveAppData();
+                renderDirectory();
+                populateTeacherSelectModal();
+                e.target.reset();
+                showToast(`Đã thêm ${name} vào danh bạ Tổ Toán - Tin!`);
+            });
+        }
+
+        function updateAdminStats() {
+            const tCount = document.getElementById('admin-teacher-count');
+            const wCount = document.getElementById('admin-wish-count');
+            if (tCount) tCount.textContent = teachers.length;
+            if (wCount) wCount.textContent = wishes.length;
+        }
+
+        function copyProjectSummary() {
+            const summary = `TÓM TẮT CẤU TRÚC WEBSITE "DẤU ẤN TOÁN - TIN: CHUYẾN TÀU TRI ÂN" (20/11):\n- Trang chủ (index.html): Giới thiệu tổng quan về sự kiện, ý nghĩa cuộc hợp tác 50:50 giữa CLB Lập trình DevGang và CLB Toán học PiMC dành tặng quý thầy cô Tổ Toán - Tin (THPT Chuyên Tiền Giang).\n- Trang Lời chúc (wishes.html): Nơi tìm kiếm tên từng giáo viên theo thời gian thực để xem trang riêng chứa hình ảnh kỷ niệm và danh sách lời chúc tri ân.\n- Trang Câu đố (puzzle.html): Các thử thách câu đố logic, toán học vui nhộn do PiMC & DevGang biên soạn để tương tác và mở khóa nội dung ẩn.`;
+            copyToClipboard(summary);
+            showToast('Đã copy bản tóm tắt cấu trúc 3 trang!');
+        }
+
+        function exportDataAsJSON() {
+            const data = JSON.stringify({ teachers, wishes }, null, 2);
+            copyToClipboard(data);
+            showToast('Đã sao chép toàn bộ dữ liệu JSON vào bộ nhớ tạm!');
+        }
+
+        function resetDefaultData() {
+            localStorage.removeItem('ctg_2011_custom_wishes');
+            localStorage.removeItem('ctg_2011_custom_teachers');
+            loadAppData();
+            syncFromGoogleSheet(true);
+            renderDirectory();
+            renderAllWishesFeed();
+            populateTeacherSelectModal();
+            updateAdminStats();
+            showToast('Đã đồng bộ lại dữ liệu gốc từ Google Sheet!');
+        }
+
+        // ==================== TIỆN ÍCH CHUNG ====================
+        function copyToClipboard(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+        }
+
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('app-toast');
+            document.getElementById('app-toast-msg').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        function escapeHTML(str) {
+            return String(str || '')
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
